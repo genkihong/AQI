@@ -39,25 +39,25 @@
           </section>
           <div class="line"></div>
           <!-- 全部城市 -->
-          <section class="city-list mt-3">
+          <section class="city-list my-3">
             <h3 class="mb-3 text-light">
               <i class="fas fa-hotel text-light mr-3"></i>{{filter}}
             </h3>
             <div class="card-columns">
               <card v-for="(item, key) in filterData[currentPage]" :index="key" :city="item" @toggle-star="addStared(item)"></card>
-            </div>
-            <!-- 分頁 -->
-            <div class="d-flex justify-content-center">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item" :class="{'active': currentPage === page - 1}" 
-                    v-for="page in pages">
-                    <a class="page-link" href="#" @click.prevent="currentPage = page - 1">{{page}}</a>
-                  </li>                  
-                </ul>
-              </nav> 
-            </div>            
+            </div>                    
           </section>
+          <!-- 分頁 -->
+          <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item" :class="{'active': currentPage === page - 1}" 
+                  v-for="page in pages">
+                  <a class="page-link" href="#" @click.prevent="currentPage = page - 1">{{page}}</a>
+                </li>                  
+              </ul>
+            </nav> 
+          </div>    
         </div>
       </div>        
     </div>
