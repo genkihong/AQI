@@ -29,7 +29,7 @@ const app = new Vue ({
   data:{
     storage: [],
     data: [],
-    location: [],
+    locations: [],
     stared: [],
     filter: '',
     currentPage: 0,
@@ -52,7 +52,7 @@ const app = new Vue ({
       vm.data.forEach((value) => {
         county.add(value.County);
       });      
-      vm.location = Array.from(county);
+      vm.locations = Array.from(county);
     },
     getStorage() {
       const vm = this;
