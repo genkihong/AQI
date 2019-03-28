@@ -8,6 +8,7 @@ https://genkihong.github.io/AQI
 * AJAX 取得環保署空氣品質指數資料
 * 下拉式選單選擇單一城市
 * 點擊 star 可將所選城市加入關注城市
+* 顏色區分空氣品質狀態
 
 ## Technique
 * Vue.js 
