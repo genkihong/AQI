@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <title>AQI 空氣品質指數</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+  </head>
+  
+  <body>
+    <div id="app">
+      <div class="jumbotron jumbotron-fluid jumbotron-bg bg-cover mb-0">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6">          
+              <h1 class="text-center text-light banner-title">空氣品質指數 AQI</h1>
+              <select name="" id="zone" class="form-control mb-3" v-model="filter">
+                <option value="" disabled>--- 請選擇城市 ---</option>
+                <option value="全部城市">→ 全部城市</option>
+                <option :value="item" v-for="item in location">→ {{item}}</option>
+              </select>               
+            </div>      
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-main py-3">
+        <div class="container">
+          <!-- 關注城市 -->
+          <section class="stared-city">
+            <h3 class="mb-3 text-light">
+              <i class="fas fa-hotel text-light mr-3"></i>關注城市
+            </h3>
+            <div class="card-columns">
+              <card v-for="(item, key) in stared" :index="key" :city="item" @toggle-star="addStared(item)"></card>
+            </div>              
+          </section>
+          <div class="line"></div>
+          <!-- 全部城市 -->
+          <section class="city-list mt-3">
+            <h3 class="mb-3 text-light">
+              <i class="fas fa-hotel text-light mr-3"></i>{{filter}}
+            </h3>
+            <div class="card-columns">
+              <card v-for="(item, key) in filterData[currentPage]" :index="key" :city="item" @toggle-star="addStared(item)"></card>
+            </div>
+            <!-- 分頁 -->
+            <div class="d-flex justify-content-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item" :class="{'active': currentPage === page - 1}" 
+                    v-for="page in pages">
+                    <a class="page-link" href="#" @click.prevent="currentPage = page - 1">{{page}}</a>
+                  </li>                  
+                </ul>
+              </nav> 
+            </div>            
+          </section>
+        </div>
+      </div>        
+    </div>
+      
+    <footer class="text-center AQI-footer">
+        <p class="text-white">空氣品質指數</p>
+        <span>資料來源 : 行政院環境保護署</span>
+    </footer>
+    
+    
+    <script type="text/x-template" id="AQI">
+      <div class="card my-3" :class="status">
+        <div class="card-header">
+          <span class="h4">{{index}} - {{city.County}} - {{city.SiteName}}</span>
+          <a href="#" class="float-right text-primary star" @click.prevent="toggleStar">
+            <i class="far fa-star fa-lg" :class="{'fas': city.checked}"></i>
+            <!-- <i class="fas fa-star" v-if></i> -->
+          </a>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>AQI 指數: {{city.AQI}}</li>
+            <li>PM2.5: {{city['PM2.5']}}</li>
+            <li>說明: {{city.Status}}</li>
+          </ul>
+          <span>{{ city.PublishTime }}</span> 
+        </div>
+      </div>
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="js/all.js"></script>
+  </body>
+</html>

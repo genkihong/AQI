@@ -1,0 +1,102 @@
+@charset "UTF-8";
+body {
+  font-family: "Microsoft JhengHei",sans-serif;
+}
+
+.jumbotron-bg {
+  height: 380px;
+  background-image: url(https://upload.cc/i1/2019/02/24/ZuecCX.jpg);
+}
+
+.banner-title {
+  margin-bottom: 100px;
+}
+
+#zone {
+  height: 48px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 3px solid #FFFFFF;
+  border-radius: 3px;
+}
+
+.fa-hotel, .stared-city h3 {
+  color: #00cc99;
+}
+
+.line {
+  margin: 2rem 0;
+  border-top: 1px dashed #559AC8;
+}
+
+.card {
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.03, 1.03);
+          transform: scale(1.03, 1.03);
+}
+
+.star {
+  -webkit-transition: ease .3s;
+  transition: ease .3s;
+}
+
+.star:hover {
+  -webkit-transform: scale(1.4, 1.4);
+          transform: scale(1.4, 1.4);
+}
+
+.bg-main {
+  background: #424242;
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+.AQI-footer {
+  background: #559AC8;
+  font-size: 14px;
+  padding: 20px;
+}
+
+.AQI-footer span {
+  color: #FFD366;
+}
+
+.status-aqi1 {
+  background-color: #00cc99;
+}
+
+.status-aqi2 {
+  background-color: #ffff00;
+}
+
+.status-aqi3 {
+  background-color: #ff7e00;
+}
+
+.status-aqi4 {
+  background-color: #ff0000;
+}
+
+.status-aqi5 {
+  background-color: #8f3f97;
+}
+
+.status-aqi6 {
+  background-color: #7e0023;
+}
+
+/* 狀態對應表
+'status-aqi1' '良好', AQI 0~50
+'status-aqi2' '普通', AQI 51~100
+'status-aqi3' '對敏感族群不健康', AQI 101~150
+'status-aqi4' '對所有族群不健康', AQI 151~200
+'status-aqi5' '非常不健康', AQI 201~300
+'status-aqi6' '危害', AQI 300~500
+ */
+/*# sourceMappingURL=all.css.map */
