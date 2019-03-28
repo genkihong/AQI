@@ -2,7 +2,7 @@
 ![首頁](https://upload.cc/i1/2019/03/28/bseAvu.jpg "首頁畫面")
 
 ## Demo
-https://genkihong.github.io/AQI/index
+https://genkihong.github.io/AQI
 
 ## Function Introduction
 * AJAX 取得環保署空氣品質指數資料
