@@ -31,9 +31,33 @@ const app = new Vue ({
     data: [],
     locations: [],
     stared: [],
-    filter: '',
+    filter: '全部城市',
     currentPage: 0,
     pages: 0,
+  },
+  computed: {
+    filterData() { 
+      const vm = this;
+      let items = [];
+      if(vm.filter == '全部城市') {
+        items = vm.data;        
+      } else {
+        items = vm.data.filter((value) => {
+          return vm.filter == value.County;
+        });
+      }
+      const newData = [];
+      items.forEach((item, i) => {
+        if(i % 9 === 0) {
+          newData.push([]);
+        }
+        const page = parseInt(i / 9);
+        newData[page].push(item);
+      });
+      vm.pages = newData.length
+      vm.currentPage = 0;
+      return newData;     
+    },
   },
   methods: {
     getData() {
@@ -81,30 +105,6 @@ const app = new Vue ({
       localStorage.setItem('SiteName', JSON.stringify(vm.stared));
     },
   },  
-  computed: {
-    filterData() { 
-      const vm = this;
-      let items = [];
-      if (!vm.filter || vm.filter == '全部城市') {
-        items = vm.data;        
-      } else {
-        items = vm.data.filter((value) => {
-          return vm.filter == value.County;
-        });
-      }
-      const newData = [];
-      items.forEach((item, i) => {
-        if (i % 9 === 0) {
-          newData.push([]);
-        }
-        const page = parseInt(i / 9);
-        newData[page].push(item);
-      });
-      vm.pages = newData.length
-      vm.currentPage = 0;
-      return newData;     
-    },
-  },
   created() {
     this.getData();    
   }

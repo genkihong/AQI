@@ -70,7 +70,7 @@
     <script type="text/x-template" id="AQI">
       <div class="card my-3" :class="status">
         <div class="card-header">
-          <span class="h4">{{ index + 1 }} - {{ city.County }} - {{ city.SiteName }}</span>
+          <span class="h4">{{ index + 1 }}. {{ city.County }} - {{ city.SiteName }}</span>
           <a href="#" class="float-right text-primary star" @click.prevent="toggleStar">
             <i class="far fa-star fa-lg" :class="{ 'fas': city.checked }"></i>
           </a>
@@ -85,7 +85,6 @@
         </div>
       </div>
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
